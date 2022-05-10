@@ -14,20 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (\App\Services\GoogleSheet $googleSheet) {
-   $data = $googleSheet->readGoogleSheet();
-   $id = 4;
-   $row = [];
-    for($i = 1; $i < count($data);$i++) {
-        if($data[$i][0] == $id) {
-            $row = $data[$i];
-            break;
-        }
-    }
-
-    print_r($row);
-
-});
 
 Route::prefix("/users")->group(function() {
     Route::get("/", [UserController::class, "index"])->name("users");
@@ -37,4 +23,4 @@ Route::prefix("/users")->group(function() {
     Route::post("/update", [UserController::class, "update"])->name("update-user");
 });
 
-Route::get("/sheets", [UserController::class, "sheet"]);
+

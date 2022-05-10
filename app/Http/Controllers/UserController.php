@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+    public function getsheets(GoogleSheet $googleSheet) {
+//        $data = $googleSheet->readGoogleSheetByCall(2);
+//        echo "<pre>";
+//            print_r($data);
+//        echo "</pre>";
+        $googleSheet->updateDataToSheet([], 1);
+    }
+
     public function index() {
         $users = User::get();
         return view("user.index", compact("users"));
@@ -85,19 +93,12 @@ class UserController extends Controller
                 $user['comments'],
                 $user['created_at'],
                 $user['updated_at']
-
             ]
         ];
-
-        $data = $googleSheet->readGoogleSheet();
-        $row = [];
-        for($i = 1; $i < count($data);$i++) {
-            if($data[$i][0] == $user['id']) {
-                $row = $data[$i];
-                break;
-            }
+       $update_in_sheets = $googleSheet->updateDataToSheet($values, $user['id']);
+        if($update_in_sheets) {
+            return redirect()->route("users");
         }
 
-        $savedData = $googleSheet->saveDataToSheet($values);
     }
 }

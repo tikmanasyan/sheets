@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cbbe113692f724d56bd7532025af277e",
+    "content-hash": "8c830d373bff0e7a19617f6405b92c8c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3136,6 +3136,70 @@
             "time": "2022-05-06T12:49:14+00:00"
         },
         {
+            "name": "pulkitjalan/google-apiclient",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pulkitjalan/google-apiclient.git",
+                "reference": "dad1d6bbfd68d20d7d615c99b6c151a1497789e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pulkitjalan/google-apiclient/zipball/dad1d6bbfd68d20d7d615c99b6c151a1497789e5",
+                "reference": "dad1d6bbfd68d20d7d615c99b6c151a1497789e5",
+                "shasum": ""
+            },
+            "require": {
+                "google/apiclient": "^2.9",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2.3",
+                "phpunit/phpunit": "^9.5.10"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "4.1.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "PulkitJalan\\Google\\GoogleServiceProvider"
+                    ],
+                    "aliases": {
+                        "Google": "PulkitJalan\\Google\\Facades\\Google"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PulkitJalan\\Google\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pulkit Jalan"
+                }
+            ],
+            "description": "Google api php client wrapper with Cloud Platform and Laravel support",
+            "homepage": "https://github.com/pulkitjalan/google-apiclient",
+            "keywords": [
+                "cloud platform",
+                "google",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/pulkitjalan/google-apiclient/issues",
+                "source": "https://github.com/pulkitjalan/google-apiclient/tree/6.0.0"
+            },
+            "time": "2022-04-18T15:33:33+00:00"
+        },
+        {
             "name": "ralouphie/getallheaders",
             "version": "3.0.3",
             "source": {
@@ -3351,6 +3415,69 @@
                 }
             ],
             "time": "2022-03-27T21:42:02+00:00"
+        },
+        {
+            "name": "revolution/laravel-google-sheets",
+            "version": "6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kawax/laravel-google-sheets.git",
+                "reference": "c460a3c50a9d7c69765e8097bcd072a88b62c46b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kawax/laravel-google-sheets/zipball/c460a3c50a9d7c69765e8097bcd072a88b62c46b",
+                "reference": "c460a3c50a9d7c69765e8097bcd072a88b62c46b",
+                "shasum": ""
+            },
+            "require": {
+                "google/apiclient": "^2.12",
+                "illuminate/container": "^8.0||^9.0",
+                "illuminate/support": "^8.0||^9.0",
+                "php": "^8.0",
+                "pulkitjalan/google-apiclient": "^6.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "orchestra/testbench": "^6.0||^7.0",
+                "phpunit/phpunit": "^9.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Revolution\\Google\\Sheets\\Providers\\SheetsServiceProvider"
+                    ],
+                    "aliases": {
+                        "Sheets": "Revolution\\Google\\Sheets\\Facades\\Sheets"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Revolution\\Google\\Sheets\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kawax",
+                    "email": "kawaxbiz@gmail.com"
+                }
+            ],
+            "description": "Google Sheets API v4",
+            "keywords": [
+                "google",
+                "laravel",
+                "sheets"
+            ],
+            "support": {
+                "source": "https://github.com/kawax/laravel-google-sheets/tree/6.0.0"
+            },
+            "time": "2022-04-22T01:20:12+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

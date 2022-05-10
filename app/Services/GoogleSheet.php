@@ -36,6 +36,18 @@ class GoogleSheet {
         return $data->getValueRanges()[0]->values;
     }
 
+    public function readGoogleSheetByCall($id)
+    {
+        $dimensions = $this->getDimensions($this->spread_sheet_id);
+        $range = "Sheet1!A{$id}:" . $dimensions['colCount'];
+        return $range;
+        $data = $this->google_sheet_service
+            ->spreadsheets_values
+            ->batchGet($this->spread_sheet_id, ['ranges' => $range]);
+
+        return $data->getValueRanges()[0]->values;
+    }
+
     public function saveDataToSheet(array $data)
     {
         $dimensions = $this->getDimensions($this->spread_sheet_id);
@@ -49,6 +61,35 @@ class GoogleSheet {
         ];
 
         $range = "A" . ($dimensions['rowCount'] + 1);
+
+        return $this->google_sheet_service
+            ->spreadsheets_values
+            ->update($this->spread_sheet_id, $range, $body, $params);
+    }
+
+    public function updateDataToSheet(array $data, int $id)
+    {
+        $dimensions = $this->getDimensions($this->spread_sheet_id);
+
+       /* $body = new Google_Service_Sheets_ValueRange([
+            'values' => $data
+        ]);
+
+        $params = [
+            'valueInputOption' => 'USER_ENTERED',
+        ];
+
+        $range = "A{$id}";*/
+
+        $body = new Google_Service_Sheets_ValueRange([
+            'values' => $data
+        ]);
+
+        $params = [
+            'valueInputOption' => 'USER_ENTERED',
+        ];
+
+        $range = "A" . ($id + 1);
 
         return $this->google_sheet_service
             ->spreadsheets_values
